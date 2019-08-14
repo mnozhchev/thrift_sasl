@@ -26,7 +26,7 @@ description = ("Thrift SASL Python module that implements SASL transports for "
 
 setup(
     name='thrift_sasl',
-    version='0.3.0-rc2+supercollider',
+    version='0.3.0-rc3+supercollider',
     description=description,
     long_description=description,
     author='Uri Laserson',
@@ -36,7 +36,8 @@ setup(
     url='https://github.com/cloudera/thrift_sasl',
     install_requires=[
         # Python 3 support was added to thrift in version 0.10.0.
-        'thrift>=0.10.0' if PY3 else 'thrift',
+        # Python 2 requires 0.9.3 - https://github.com/cloudera/impyla/issues/286
+        'thrift>=0.10.0' if PY3 else 'thrift==0.9.3',
         # Installing sasl is rather painful, so use the pure python implementation
         'pure-sasl>=0.3.0',
     ],
